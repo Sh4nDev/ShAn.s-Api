@@ -56,11 +56,12 @@ module.exports.onStart = async function ({ api, event, args }) {
     const cmdsToShow = finalArray.slice(startIndex, endIndex);
     let msg = `╭─‣ ❀ėฬ𝔯 𝖋á𝒊ⲍ𐍈❀ 𝐒𝐭𝐨𝐫𝐞 🎀\n├‣ 𝐀𝐝𝐦𝐢𝐧: 𝐒𝐡𝐀𝐧\n├‣𝐏𝐚𝐠𝐞: ${page} 𝐎𝐟 ${totalPages} 𝐏𝐚𝐠𝐞(𝐬)\n├‣ 𝐓𝐨𝐭𝐚𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬: ${finalArray.length}\n╰────────────◊\n`;
     cmdsToShow.forEach((cmd, index) => {
-      msg += `╭─‣ ${startIndex + index + 1}: ${cmd.cmd}\n├‣ Author: ${cmd.author}\n├‣ Update: ${cmd.update || null}\n╰────────────◊\n`;
+      msg += `╭─‣ ${startIndex + index + 1}: ${cmd.cmd}\n├‣ Author: ${cmd.author}\n├‣ Update: ${cmd.update || null}\n`;
     });
+    msg += `╰────────────◊`;
 
     if (page < totalPages) {
-      msg += `\n📄 | 𝐏𝐚𝐠𝐞 [${page}-${totalPages}]\nℹ | 𝐓𝐲𝐩𝐞 !cmds ${page + 1} - 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞.`;
+      msg += `\nℹ | 𝐓𝐲𝐩𝐞 !cmds ${page + 1} - 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞.`;
     }
     api.sendMessage(
       msg,
